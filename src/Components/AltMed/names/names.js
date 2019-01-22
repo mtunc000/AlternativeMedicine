@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import classes from "./names.css";
+import "./names.css";
 
 class Names extends Component {
   render() {
@@ -9,28 +9,31 @@ class Names extends Component {
 
     switch (this.props.type) {
       case "acupuncture":
-        name = <div className={classes.Acupuncture}>Acupuncture</div>;
+        name = <div className="Acupuncture">Acupuncture</div>;
         break;
       case "bioEnergy":
-        name = <div className={classes.BioEnergy}>BioEnergy</div>;
+        name = <div className="BioEnergy">BioEnergy</div>;
         break;
       case "chiropractor":
-        name = <div className={classes.Chiropractor}>Chiropractor</div>;
+        name = <div className="Chiropractor">Chiropractor</div>;
         break;
       case "hijama":
-        name = <div className={classes.Hijama}>Hijama</div>;
+        name = <div className="Hijama">Hijama</div>;
         break;
-      case "hydtoTherapy":
-        name = <div className={classes.HydtoTherapy}>HydtoTherapy</div>;
+      case "hydroTherapy":
+        name = <div className="HydroTherapy">HydroTherapy</div>;
         break;
       case "massageTherapy":
-        name = <div className={classes.MassageTherapy}>MassageTherapy</div>;
+        name = <div className="MassageTherapy">MassageTherapy</div>;
+        break;
+        case "meditation":
+        name = <div className="Meditation">Meditation</div>;
         break;
       case "nutrition":
-        name = <div className={classes.Nutrition}>Nutrition</div>;
+        name = <div className="Nutrition">Nutrition</div>;
         break;
       case "other":
-        name = <div className={classes.Other}>Other</div>;
+        name = <div className="Other">Other</div>;
         break;
       default:
         name = null;
