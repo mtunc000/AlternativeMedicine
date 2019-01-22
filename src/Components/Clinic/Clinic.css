@@ -1,0 +1,7 @@
+.Clinic {
+  display: "inline-block";
+  border: "2px solid red";
+  text-align: "center";
+  margin: "16 px";
+  padding: "16px";
+}
