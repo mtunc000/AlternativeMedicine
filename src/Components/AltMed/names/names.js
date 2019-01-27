@@ -32,6 +32,9 @@ class Names extends Component {
       case "nutrition":
         name = <div className="Nutrition">Nutrition</div>;
         break;
+        case "thetaHealing":
+        name = <div className="ThetaHealing">ThetaHealing</div>;
+        break;
       case "other":
         name = <div className="Other">Other</div>;
         break;
