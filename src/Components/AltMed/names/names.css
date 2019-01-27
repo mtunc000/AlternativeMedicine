@@ -92,6 +92,16 @@
 
 
 }
+.ThetaHealing {
+    border: 2px solid red;
+    width: 85%;
+    height: 5%;
+    margin: 1% auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(rgb(92, 67, 49), #462f20);
+
+}
 
 .Other {
     border: 2px solid red;
