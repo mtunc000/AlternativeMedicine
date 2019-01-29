@@ -1,9 +1,9 @@
 import React from "react";
 
-import classes from "./Logo.css";
+import "./Logo.css";
 
 const logo = props => (
-  <div className={classes.Logo} style={{ height: props.height }}>
+  <div className="Logo" style={{ height: props.height }}>
     <img
       src={`assets/images/${props.source}`}
       style={{ height: props.height }}
