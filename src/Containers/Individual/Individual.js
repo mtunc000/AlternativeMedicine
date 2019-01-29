@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "./Individual.css";
-// import Logo from "../../Components/Logo/Logo";
+ import Logo from "../../Components/Logo/Logo";
 import Aux from "../../hoc/Aux";
 import AltMed from "../../Components/AltMed/altMed";
 import BuildControls from "../../Components/AltMed/BuildControls/BuildControls"
+import Modal from '../../Components/UI/Modal/Modal';
+import OrderSummary from '../../Components/AltMed/OrderSummary/OrderSummary';
+import Spinner from '../../Components/UI/Spinner/Spinner';
+import axios from '../../axiosFirebase';
 
 
 const SERVICE_PRICES = {
@@ -37,16 +41,18 @@ class Individual extends Component {
       other:0   
 
     },
-    totalPrice:  120,
-    purchasable: false
+    totalPrice:  0,
+    purchasable: false,
+    purchasing: false,
+    loading: false,
     
-    // category: "",
-    // specialty: "",
-    // personal: "",
-    // street: "",
-    // city: "",
-    // state: "",
-    // zip: ""
+    category: "",
+    specialty: "",
+    personal: "",
+    street: "",
+    city: "",
+    state: "",
+    zip: ""
   }
   updatePurchaseState (names) {
     const sum = Object.keys( names )
@@ -92,6 +98,42 @@ class Individual extends Component {
    
   };
 
+  purchaseHandler = () => {
+    this.setState( { purchasing: true } );
+}
+
+purchaseCancelHandler = () => {
+    this.setState( { purchasing: false } );
+}
+
+purchaseContinueHandler = () => {
+    // alert('You continue!');
+    // this.setState( { loading: true } );
+    const altMedicines = {
+        names: this.state.names,
+        price: this.state.totalPrice,
+        user: {
+            name: 'Max Schwarzmüller',
+            address: {
+                street: 'Teststreet 1',
+                zipCode: '41351',
+                country: 'Germany'
+            },
+            email: 'test@test.com'
+        },
+        deliveryMethod: 'fastest'
+    }
+    axios.post( 'https://alternative-medicine-29c43.firebaseio.com/altMedicines.json',altMedicines)
+         .then( response => console.log(response))
+        //     this.setState({ loading: false, purchasing: false });
+        // } )
+         .catch( error => console.log(error));
+        //     this.setState({ loading: false, purchasing: false });
+        // } );
+}
+
+
+
   render() {
 
     const disabledInfo = {
@@ -100,9 +142,22 @@ class Individual extends Component {
   for ( let key in disabledInfo ) {
       disabledInfo[key] = disabledInfo[key] <= 0
   }
+   
+  let orderSummary = <OrderSummary
+  ingredients={this.state.ingredients}
+  price={this.state.totalPrice}
+  purchaseCancelled={this.purchaseCancelHandler}
+  purchaseContinued={this.purchaseContinueHandler} />;
+if ( this.state.loading ) {
+  orderSummary = <Spinner />;
+}
+
     return (
       <Aux>
-        <AltMed names= {this.state.names}/>
+        <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
+                    {orderSummary}
+                </Modal>
+        <AltMed names= {this.state.names} />
         <BuildControls 
         altMedAdded = {this.addAltMedicineHandler}
         altMedRemoved = {this.removeAltMedicineHandler}
@@ -110,7 +165,7 @@ class Individual extends Component {
         purchasable={this.state.purchasable}
         price={this.state.totalPrice}
         />
-        {/* <div className="Individual">
+         <div className="Individual">
           <h1>Choose a Category</h1>
           <Logo height={100} source={this.state.category} />
           <select
@@ -128,9 +183,9 @@ class Individual extends Component {
             <option value="ThetaHealing.jpg">Theta-Healing</option>
             <option value="Other">Other</option>
           </select>
-          */}
+          
 
-          {/* <label>Add a Description</label>
+           <label>Add a Description</label>
           <textarea
             rows="4"
             value={this.state.specialty}
@@ -174,7 +229,7 @@ class Individual extends Component {
           />
 
           <button>Add Post</button>
-        </div> */}
+        </div> 
       </Aux>
     );
   }
