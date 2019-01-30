@@ -10,19 +10,11 @@ class OrderSummary extends Component {
     }
 
     render () {
-        // const nameSummary = Object.keys( this.props.names )
-        //     .map( nKey => {
-        //         return (
-        //             <li key={nKey}>
-        //                 <span style={{ textTransform: 'capitalize' }}>{nKey}</span>: {this.props.names[nKey]}
-        //             </li> );
-        //     } );
+ 
 
         return (
             <Aux>
-                <h3>Your Order</h3>
-               
-               {/*  */}
+  
                 <p><strong>Total Price: {this.props.price.toFixed( 2 )}</strong></p>
                 <p>Continue to Checkout?</p>
                 <Button btnType="Danger" clicked={this.props.purchaseCancelled}>CANCEL</Button>

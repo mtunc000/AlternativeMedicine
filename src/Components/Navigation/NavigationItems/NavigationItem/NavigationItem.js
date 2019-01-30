@@ -4,15 +4,7 @@ import React from "react";
 import "./NavigationItem.css";
 
 const navigationItem = props => (
-  // <li className={classes.NavigationItem}>
-  //   <NavLink
-  //     to={props.link}
-  //     exact={props.exact}
-  //     activeClassName={classes.active}
-  //   >
-  //     {props.children}
-  //   </NavLink>
-  // </li>
+
   <li className="NavigationItem">
   <a 
       href={props.link} 

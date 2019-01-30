@@ -112,16 +112,7 @@ purchaseContinueHandler = () => {
     const altMedicines = {
         names: this.state.names,
         price: this.state.totalPrice,
-        user: {
-            name: 'Max Schwarzmüller',
-            address: {
-                street: 'Teststreet 1',
-                zipCode: '41351',
-                country: 'Germany'
-            },
-            email: 'test@test.com'
-        },
-        deliveryMethod: 'fastest'
+       
     }
     axios.post( 'https://alternative-medicine-29c43.firebaseio.com/altMedicines.json',altMedicines)
          .then( response => console.log(response))
