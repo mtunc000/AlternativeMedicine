@@ -19,8 +19,7 @@ class Names extends Component {
         />)
         return logo;
       
-  
-  // <img src="public/assets/images/acupuncture.jpg" />
+ 
     
     };
   
