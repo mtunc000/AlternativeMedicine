@@ -15,7 +15,7 @@ export default class altMed extends Component {
     Chiropractor:"Chiropractor.jpg",
     Hijama:"Hijama.jpeg",
     HydroTherapy:"Hydrotherapy.jpg",
-    MassageTheraphy:"Massage Therapy.jpeg",
+    MassageTheraphy:"MassageTherapy.jpeg",
     Meditation: "meditation.jpg",
     Nutrition: "nutrition.jpg",
     ThetaHealing: "ThetaHealing.jpg"
