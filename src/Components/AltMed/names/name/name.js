@@ -12,7 +12,7 @@ class Name extends Component {
             chiropractor:"Chiropractor.jpg",
             hijama:"Hijama.jpeg",
             hydroTherapy:"Hydrotherapy.jpg",
-            massageTheraphy:"Massage Therapy.jpeg",
+            massageTheraphy:"MassageTherapy.jpeg",
             meditation: "meditation.jpg",
             nutrition: "nutrition.jpg",
             thetaHealing: "ThetaHealing.jpg",
@@ -36,7 +36,7 @@ class Name extends Component {
   <option value="Chiropractor.jpg">Chiropractic</option>
   <option value="Hijama.jpeg">Hijama</option>
   <option value="Hydrotherapy.jpg">HydroTherapy</option>
-  <option value="Massage Therapy.jpeg">MassageTheraphy</option>
+  <option value="MassageTherapy.jpeg">MassageTheraphy</option>
   <option value="meditation.jpg">Meditation</option>
   <option value="nutrition.jpg">Nutrition</option>
   <option value="ThetaHealing.jpg">Theta-Healing</option>
